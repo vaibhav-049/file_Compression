@@ -29,9 +29,8 @@ ENV/
 .vscode/
 *.code-workspace
 
-# Uploads directory (except .gitkeep)
-uploads/*
-!uploads/.gitkeep
+# Uploads directory
+uploads/
 
 # System Files
 .DS_Store
