@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart File Compressor</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/static/additional_styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Smart File Compressor</h1>
+        <p class="subtitle">Compress your files efficiently with our advanced algorithms</p>
+          <div class="mode-select">
+            <button class="mode-btn active" data-mode="compress">Compress</button>
+            <button class="mode-btn" data-mode="decompress">Decompress</button>
+        </div>
+        <div class="compression-types">
+            <button class="type-btn active" data-type="text">Text Files</button>
+            <button class="type-btn" data-type="image">Images</button>
+            <button class="type-btn" data-type="pdf">PDF</button>
+            <button class="reset-btn" id="resetBtn">
+                <i class="fas fa-undo"></i> Reset
+            </button>
+        </div>
+        <div class="drop-zone" id="dropZone">
+            <div class="drop-zone-content">
+                <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                <h3>Drag & Drop Files Here</h3>
+                <p>or</p>                <button type="button" class="browse-btn">Browse Files</button>
+                <input type="file" id="fileInput" class="file-input" multiple accept=".txt,.csv,.log,.xml,.jpg,.jpeg,.png,.gif,.bmp,.pdf,.huff" hidden>
+                <p class="file-types">Supported formats: .txt, .csv, .log, .xml, .jpg, .jpeg, .bmp, .gif, .png, .pdf, .huff</p>
+            </div>
+        </div>
+        <div class="files-list" id="filesList" style="display: none;">
+            <h3><i class="fas fa-list"></i> Selected Files</h3>
+            <div class="files-grid" id="filesGrid">
+            </div>
+            <div class="bulk-actions">
+                <button id="removeAllBtn" class="remove-all-btn">
+                    <i class="fas fa-trash"></i> Remove All
+                </button>
+                <button id="processAllBtn" class="process-all-btn">
+                    <i class="fas fa-cogs"></i> Process All Files
+                </button>
+            </div>
+        </div>
+        <div class="file-info" id="fileInfo" style="display: none;">
+            <h3><i class="fas fa-info-circle"></i> File Information</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <i class="fas fa-file"></i>
+                    <p>Name: <span id="fileName"></span></p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-weight-hanging"></i>
+                    <p>Original Size: <span id="fileSize"></span></p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-file-code"></i>
+                    <p>Type: <span id="fileType"></span></p>
+                </div>
+            </div>
+        </div>        <div class="compression-options" id="compressionOptions" style="display: none;">
+            <h3><i class="fas fa-sliders-h"></i> Compression Options</h3>
+            <div class="options-container">
+                <div id="imageOptions" style="display: none;">
+                    <label for="quality">
+                        <i class="fas fa-image"></i> Image Quality:
+                        <span id="qualityValue">85</span>
+                    </label>
+                    <div class="quality-slider">
+                        <span class="quality-label">Lower Size</span>
+                        <input type="range" id="quality" min="1" max="100" value="85">
+                        <span class="quality-label">Better Quality</span>
+                    </div>
+                </div>
+                <button id="compressBtn" class="compress-btn">
+                    <i class="fas fa-compress-alt"></i> Compress File
+                </button>
+            </div>
+        </div>        <div class="result" id="result" style="display: none;">
+            <h3><i class="fas fa-chart-pie"></i> Compression Results</h3>
+            <div class="results-grid">
+                <div class="result-item">
+                    <i class="fas fa-file-archive"></i>
+                    <p>Compressed Size: <span id="compressedSize"></span></p>
+                </div>
+                <div class="result-item">
+                    <i class="fas fa-percentage"></i>
+                    <p>Compression Ratio: <span id="compressionRatio"></span></p>
+                </div>
+            </div>
+            <button id="downloadBtn" class="download-btn">
+                <i class="fas fa-download"></i> Download Compressed File
+            </button>
+        </div>
+    </div>
+    <footer class="footer">
+    </footer>
+    <script src="/static/script.js"></script>
+</body>
+</html>
