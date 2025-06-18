@@ -41,7 +41,7 @@ def decompress_file(input_path):
     output_path = input_path[:-5]
     huffman = HuffmanDecompressor()
     compressed_size, decompressed_size = huffman.decompress(input_path, output_path)
-    print(f"Decompression completed successfully!")
+    print("Decompression completed successfully!")
     print(f"Compressed size: {compressed_size} bytes")
     print(f"Decompressed size: {decompressed_size} bytes")
 if __name__ == "__main__":

@@ -85,7 +85,7 @@ def compress_file(input_path):
     huffman = HuffmanCompressor()
     original_size, compressed_size = huffman.compress(input_path, output_path)
     compression_ratio = (1 - compressed_size/original_size) * 100
-    print(f"Compression completed successfully!")
+    print("Compression completed successfully!")
     print(f"Original size: {original_size} bytes")
     print(f"Compressed size: {compressed_size} bytes")
     print(f"Compression ratio: {compression_ratio:.2f}%")
